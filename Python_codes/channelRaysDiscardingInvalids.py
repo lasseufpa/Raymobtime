@@ -3,7 +3,7 @@ import h5py
 
 
 def DiscardingInvalids(allEpisodeData,sceneNum,rxtxPair):
-	channelRays=np.squeeze(allEpisodeData[sceneNum-1,rxtxPair-1,:,:])
+	channelRays=np.squeeze(allEpisodeData[:,:,rxtxPair-1,sceneNum-1])
 	[numRaysPerTxRxPair, numParametersPerRay]=channelRays.shape
 	theNaN = np.isnan(channelRays)
 	sumOfNaN=np.count_nonzero(theNaN)
@@ -14,5 +14,5 @@ def DiscardingInvalids(allEpisodeData,sceneNum,rxtxPair):
 	    		if (theNaN[:,1]=='False'):
 	        		validRays = 1
 	        		channelRays = channelRays[validRays,:]
- 	return(channelRays)
+	return(channelRays)
 
