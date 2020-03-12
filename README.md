@@ -1,14 +1,10 @@
 # Raymobtime
-Scripts for reading Raymobtime dataset available in https://www.lasse.ufpa.br/raymobtime/.
-
-
-For reading HDF5 at MATLAB, start by InterpretRaymotimeHDF5.m
-
-
-For reading HDF5 at Python, start by InterpretRaymotimeHDF5.py inside the folder Python_code
-
 
 Check our wiki for details about Raymobtime available datasets.
+
+For reading HDF5 at MATLAB, start by InterpretRaymotimeHDF5.m into the folder Matlab_codes
+
+For reading HDF5 at Python, start by InterpretRaymotimeHDF5.py inside the folder Python_codes
 
 
 ### In order to use the Raymobtime datasets/codes or any (modified) part of them, please cite this paper:
