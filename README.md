@@ -1,6 +1,6 @@
 # Raymobtime
 
-Check our wiki for details about Raymobtime available datasets.
+Check our wiki for details about Raymobtime. The datasets are avaiable at https://www.lasse.ufpa.br/raymobtime/
 
 For reading HDF5 at MATLAB, start by InterpretRaymotimeHDF5.m into the folder Matlab_codes
 
