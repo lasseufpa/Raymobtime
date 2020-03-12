@@ -2,9 +2,9 @@
 %e-mail: raymobtime@gmail.com
 
 %Inputs
-numEpisodes = 1;          %Number of episodes to be read
-raymobtimePath = 'C:\';   %Inset the location of the files to be read
-filePrefix= '';           %Include the file name without the number that counts episodes
+numEpisodes = 5;          %Number of episodes to be read
+raymobtimePath = '../insite_data_s004_carrier60GHz/';   %Inset the location of the files to be read
+filePrefix= 'rosslyn_mobile_60GHz_ts1s_V_e';           %Include the file name without the number that counts episodes
 extension='.hdf5';        %Include file extension
 numOfInvalidChannels = 0; %For computing number of invalid channels, if any
 
@@ -59,7 +59,7 @@ for e=0:numEpisodes-1
             
             gainMagnitude = 10.^(0.1*gainMagnitude); %transform to linear
             complexGain=gainMagnitude .* exp(1j * gainPhase); %consider complex gain
-            isChannelLOS = sum(isLOS); 
+            isChannelLOS = sum(isLOS);
             
             
             %%Insert desired post processing of ray data
