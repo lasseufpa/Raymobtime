@@ -3,8 +3,9 @@
 
 %Inputs
 numEpisodes = 5;          %Number of episodes to be read
-raymobtimePath = '../insite_data_s004_carrier60GHz/';   %Inset the location of the files to be read
-filePrefix= 'rosslyn_mobile_60GHz_ts1s_V_e';           %Include the file name without the number that counts episodes
+insite_version = 3.2; %consult on raymobtime datasets table
+raymobtimePath = './ray_tracing_data_s008_carrier60GHz';   %Inset the location of the files to be read
+filePrefix= 'rosslyn_mobile_60GHz_ts0.1s_V_Lidar_e';           %Include the file name without the number that counts episodes
 extension='.hdf5';        %Include file extension
 numOfInvalidChannels = 0; %For computing number of invalid channels, if any
 
@@ -30,8 +31,8 @@ for e=0:numEpisodes-1
             [numPaths, numParameters] = size(channelRays);
             %support files with 7 or 8 ray information (8 is ray phase)
             doesItIncludeRayPhase = 0;
-            if numParameters==8
-                doesItIncludeRayPhase = 1;
+            if numParameters>=8
+                doesItIncludeRxAngle = 1;
             end
             %Insite adopts theta as elevation and phi as azimuth
             %<received power(dBm)>
@@ -49,12 +50,15 @@ for e=0:numEpisodes-1
             AoA_el = channelRays(:,5); %elevation angle of arrival in degrees
             AoA_az = channelRays(:,6); %azimuth angle of arrival in degrees
             isLOS = channelRays(:,7);  %flag 1 for LOS ray, flag 0 for NLOS ray
-            if doesItIncludeRayPhase == 0
+            if insite_version <= 3.2
                 %it was not specified in first 5gm data version, so if we don't
                 %have it, generate uniformly distributed phase
                 gainPhase = 2*pi*rand(size(gainMagnitude));
             else
                 gainPhase = channelRays(:,8)*pi/180; %ray phases recorded from InSite;
+            end
+            if doesItIncludeRxAngle:
+                RxAngle = channelRays(:,9);
             end
             
             gainMagnitude = 10.^(0.1*gainMagnitude); %transform to linear
