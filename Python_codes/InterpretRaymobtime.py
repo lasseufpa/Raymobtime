@@ -43,7 +43,7 @@ for index in numEpisodes:
                     continue #next Tx / Rx pair
 
             [numParameters, numPaths] = channelRays.shape   #support files with 7 or 8 ray information (8 is ray phase)
-            doesItIncludeRayPhase = 0
+            doesItIncludeRxAngle = 0
 
             if (numParameters >= 9):
                 doesItIncludeRxAngle = 1
