@@ -45,7 +45,7 @@ for index in numEpisodes:
             [numParameters, numPaths] = channelRays.shape   #support files with 7 or 8 ray information (8 is ray phase)
             doesItIncludeRayPhase = 0
 
-            if (numParameters >= 8):
+            if (numParameters >= 9):
                 doesItIncludeRxAngle = 1
 
             gainMagnitude = channelRays[0,:] # received power in dBm
