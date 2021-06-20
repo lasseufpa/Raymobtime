@@ -31,7 +31,7 @@ for e=0:numEpisodes-1
             [numPaths, numParameters] = size(channelRays);
             %support files with 7 or 8 ray information (8 is ray phase)
             doesItIncludeRayPhase = 0;
-            if numParameters>=8
+            if numParameters>8
                 doesItIncludeRxAngle = 1;
             end
             %Insite adopts theta as elevation and phi as azimuth
